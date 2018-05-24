@@ -25,7 +25,7 @@ const viewData = function(Data) {
     for (let i = 0; i < n; i++) {
         searchResults.innerHTML += `<h2>${Data[1][i]}</h2>`
         searchResults.innerHTML += `<h4>${Data[2][i]}</h4>`
-        searchResults.innerHTML += `<a href="${Data[1][i]}" target="_blank">Visit</h2>`;
+        searchResults.innerHTML += `<a href="${Data[3][i]}" target="_blank">Visit</h2>`;
     }
 }
 
