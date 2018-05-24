@@ -1,0 +1,49 @@
+.dark-body
+{
+    background-color: rgb(34, 30, 30);
+    color: rgb(180, 175, 173);
+}
+
+.container
+{
+    width: 80%;
+    margin: auto;
+    font-family: sans-serif;
+}
+.text-center 
+{
+    text-align: center;
+}
+
+.link-img
+{
+    display: block;
+    width: 200px;
+    margin: auto;
+}
+
+a
+{
+    text-decoration-line: none;
+    color: blue;
+}
+
+.btn-link
+{
+    display: block;
+    width: 200px;
+    margin: auto;
+    font-size: 16px;
+    background-color: rgb(1, 216, 169);
+    border-style: none;
+    color: whitesmoke;
+    text-decoration-line: none;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.btn-link:hover
+{
+    background-color: rgba(1, 216, 169,0.8);
+    color: white;
+}
