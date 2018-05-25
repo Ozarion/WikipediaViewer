@@ -3,7 +3,7 @@ const apiFormat = "format=json&formatversion=2";
 const apiAction = "action=opensearch";
 
 //Search wikipedia api and pass json data to viewData function
-const queryWikiAPI = function(searchTitle) {
+const queryFor = function(searchTitle) {
     let requestURL = `${apiBaseURL+apiAction}&search=${encodeURIComponent(searchTitle)}&prop=revisions&rvprop=content&${apiFormat}&origin=*`;
     let request = new XMLHttpRequest();
     
