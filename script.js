@@ -18,18 +18,24 @@ const search = function(searchTitle) {
 
 //is called inside 'search' function. Shows data on screen
 const viewData = function(Data) {
-    let searchResults = document.querySelector("#searchResult");
-    searchResults.textContent = `Search result for ${Data[0]}`;
+    let resultSection = document.querySelector("#resultSection");
+    resultSection.innerHTML = `<h1>Search result for ${Data[0]}</h1>`;
     let n = Data[1].length;
-    
+
     for (let i = 0; i < n; i++) {
-        searchResults.innerHTML += `<h2>${Data[1][i]}</h2>`
-        searchResults.innerHTML += `<h4>${Data[2][i]}</h4>`
-        searchResults.innerHTML += `<a href="${Data[3][i]}" target="_blank">Visit</h2>`;
+        let article = document.createElement('article');
+        article.classList.add('article');
+        article.innerHTML += `<h2 class="title">${Data[1][i]}</h2>`
+        article.innerHTML += `<p class="summary">${Data[2][i]}</p>`
+        article.innerHTML += `<a class="article-link" href="${Data[3][i]}" target="_blank">Visit</h2>`;
+        resultSection.appendChild(article);
+        article.addEventListener("click", () => {
+            window.open(article.querySelector("a").href,"_blank");
+        });
     }
 }
 
 window.onload = function () {
     let title = prompt("Search term: ");
-    search(title);
+    search(title);   
 }
