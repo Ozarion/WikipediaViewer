@@ -3,7 +3,7 @@ const apiFormat = "format=json&formatversion=2";
 const apiAction = "action=opensearch";
 
 //Search wikipedia api and pass json data to viewData function
-const search = function(searchTitle) {
+const queryWikiAPI = function(searchTitle) {
     let requestURL = `${apiBaseURL+apiAction}&search=${encodeURIComponent(searchTitle)}&prop=revisions&rvprop=content&${apiFormat}&origin=*`;
     let request = new XMLHttpRequest();
     
@@ -12,12 +12,12 @@ const search = function(searchTitle) {
     request.send();
 
     request.onload = () => {
-        viewData(request.response);
+        insertIntoPage(request.response);
     };
 }
 
 //is called inside 'search' function. Shows data on screen
-const viewData = function(Data) {
+const insertIntoPage = function(Data) {
     let resultSection = document.querySelector("#resultSection");
     resultSection.innerHTML = `<h1>Search result for ${Data[0]}</h1>`;
     let n = Data[1].length;
@@ -37,5 +37,5 @@ const viewData = function(Data) {
 
 window.onload = function () {
     let title = prompt("Search term: ");
-    search(title);   
+    queryWikiAPI(title);   
 }
