@@ -27,13 +27,9 @@ const insertIntoPage = function(Data) {
     for (let i = 0; i < n; i++) {
         let article = document.createElement('article');
         article.classList.add('article');
-        article.innerHTML += `<h2 class="title">${Data[1][i]}</h2>`
-        article.innerHTML += `<p class="summary">${Data[2][i]}</p>`
-        article.innerHTML += `<a class="article-link" href="${Data[3][i]}" target="_blank">Visit</h2>`;
+        article.innerHTML += `<h2 class="title"><a href="${Data[3][i]}" target="_blank">${Data[1][i]}</a></h2>`;
+        article.innerHTML += `<p class="summary">${Data[2][i]}</p>`;
         resultSection.appendChild(article);
-        article.addEventListener("click", () => {
-            window.open(article.querySelector("a").href,"_blank");
-        });
     }
 }
 
