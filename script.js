@@ -2,6 +2,8 @@ const apiBaseURL = "https://en.wikipedia.org/w/api.php?";
 const apiFormat = "format=json&formatversion=2";
 const apiAction = "action=opensearch";
 
+const searchBox = document.getElementById("searchBox");
+
 //Search wikipedia api and pass json data to viewData function
 const queryAPIFor = function(searchTitle) {
     let requestURL = `${apiBaseURL+apiAction}&search=${encodeURIComponent(searchTitle)}&prop=revisions&rvprop=content&${apiFormat}&origin=*`;
@@ -19,7 +21,7 @@ const queryAPIFor = function(searchTitle) {
 //is called inside 'search' function. Shows data on screen
 const insertIntoPage = function(Data) {
     let resultSection = document.querySelector("#resultSection");
-    resultSection.innerHTML = `<h1>Search result for ${Data[0]}</h1>`;
+    resultSection.innerHTML = `<h3>Search results for <strong>${Data[0]}</strong></h3>`;
     let n = Data[1].length;
 
     for (let i = 0; i < n; i++) {
@@ -35,7 +37,17 @@ const insertIntoPage = function(Data) {
     }
 }
 
+const search = function() {
+    let searchText = searchBox.value;
+    queryAPIFor(searchText);
+}
+
+const enterPress = function(e) {
+    if (e.keyCode !== 13) return;
+    search();
+}
+
 window.onload = function () {
-    let title = prompt("Search term: ");
-    queryAPIFor(title);   
+    searchBox.addEventListener("keyup", enterPress);
+    searchBox.value = '';
 }

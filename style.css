@@ -44,11 +44,26 @@ a
     display: inline-block;
     width: 200px;
     margin: auto;
+    margin-bottom: 10px;
     font-size: 16px;
     background-color: rgb(1, 216, 169);
     border-style: none;
     color: whitesmoke;
     text-decoration-line: none;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+input[type=search] {
+    display: block;
+    width: 80%;
+    min-width: 200px;
+    margin: auto;
+    margin-bottom: 10px;
+    background-color: whitesmoke;
+    color: rgb(34, 30, 30);
+    font-size: 16px;
+    font-weight: bold;
     padding: 10px;
     border-radius: 4px;
 }
@@ -78,4 +93,23 @@ a
 .article-link
 {
     font-size: 18px;
+}
+
+.heading
+{
+    font-size: 48px;
+    font-weight: lighter;
+    color: whitesmoke;
+}
+
+.footer-text
+{
+    font-size: 18px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 540px) {
+    .heading {
+        font-size: 24px;
+    }
 }
