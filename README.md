@@ -1,3 +1,3 @@
 # WikipediaViewer
 Implements Wikipedia's API.
-# [Live Preview](https://ozarion.github.io/WikipediaViewer/)
+# [Live Preview](https://osamaishtiaq.github.io/WikipediaViewer/)
